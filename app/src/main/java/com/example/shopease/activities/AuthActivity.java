@@ -116,11 +116,9 @@ public class AuthActivity extends AppCompatActivity {
         binding.btnLogin.setEnabled(false);
         binding.btnLogin.setText("Logging in...");
 
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
+        ApiService.LoginRequest request = new ApiService.LoginRequest(email, password);
 
-        apiService.login(user).enqueue(new Callback<User>() {
+        apiService.login(request).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -140,7 +138,8 @@ public class AuthActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(AuthActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                    String errorMsg = response.message().isEmpty() ? "Login failed" : response.message();
+                    Toast.makeText(AuthActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
                     binding.btnLogin.setEnabled(true);
                     binding.btnLogin.setText("Log In");
                 }
@@ -159,12 +158,9 @@ public class AuthActivity extends AppCompatActivity {
         binding.btnLogin.setEnabled(false);
         binding.btnLogin.setText("Registering...");
 
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(password);
+        ApiService.RegisterRequest request = new ApiService.RegisterRequest(name, email, password);
 
-        apiService.register(user).enqueue(new Callback<User>() {
+        apiService.register(request).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -184,7 +180,8 @@ public class AuthActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(AuthActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                    String errorMsg = response.message().isEmpty() ? "Registration failed" : response.message();
+                    Toast.makeText(AuthActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
                     binding.btnLogin.setEnabled(true);
                     binding.btnLogin.setText("Register");
                 }

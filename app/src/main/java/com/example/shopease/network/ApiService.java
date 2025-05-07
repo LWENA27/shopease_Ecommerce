@@ -8,7 +8,10 @@ import com.example.shopease.models.User;
 
 import java.util.List;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
 
@@ -24,13 +27,40 @@ public interface ApiService {
     @GET("products/new")
     Call<List<Product>> getNewProducts();
 
-    Call<User> login(User user);
+    @POST("login")
+    Call<User> login(@Body LoginRequest request);
 
-    Call<User> register(User user);
+    @POST("register")
+    Call<User> register(@Body RegisterRequest request);
 
-    Call<Order> placeOrder(Order order);
+    @POST("orders")
+    Call<Order> placeOrder(@Body Order order);
 
+    @GET("products")
     Call<List<Product>> getProducts();
 
-    Call<List<Product>> getProductsByCategory(String categoryName);
+    @GET("categories/{categoryName}/products")
+    Call<List<Product>> getProductsByCategory(@Path("categoryName") String categoryName);
+
+    class LoginRequest {
+        private String email;
+        private String password;
+
+        public LoginRequest(String email, String password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+
+    class RegisterRequest {
+        private String name;
+        private String email;
+        private String password;
+
+        public RegisterRequest(String name, String email, String password) {
+            this.name = name;
+            this.email = email;
+            this.password = password;
+        }
+    }
 }

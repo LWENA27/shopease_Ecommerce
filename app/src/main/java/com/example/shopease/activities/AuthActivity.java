@@ -19,7 +19,6 @@ public class AuthActivity extends AppCompatActivity {
     private ActivityAuthBinding binding;
     private ApiService apiService;
     private SharedPrefManager sharedPrefManager;
-    private boolean isLoginMode = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,40 +33,26 @@ public class AuthActivity extends AppCompatActivity {
         // Back button click listener
         binding.ivBack.setOnClickListener(v -> finish());
 
-        // Toggle login/register mode
-        binding.tvToggleMode.setOnClickListener(v -> {
-            isLoginMode = !isLoginMode;
-            updateUIMode();
+        // Login button click listener
+        binding.btnLogin.setOnClickListener(v -> {
+            String email = binding.etEmail.getText().toString().trim();
+            String password = binding.etPassword.getText().toString().trim();
+
+            if (validateLoginInputs(email, password)) {
+                loginUser(email, password);
+            }
         });
 
-        // Action button click listener (Login or Register)
-        binding.btnLogin.setOnClickListener(v -> {
+        // Register button click listener
+        binding.btnRegister.setOnClickListener(v -> {
             String name = binding.etName.getText().toString().trim();
             String email = binding.etEmail.getText().toString().trim();
             String password = binding.etPassword.getText().toString().trim();
 
-            if (isLoginMode) {
-                if (validateLoginInputs(email, password)) {
-                    loginUser(email, password);
-                }
-            } else {
-                if (validateRegisterInputs(name, email, password)) {
-                    registerUser(name, email, password);
-                }
+            if (validateRegisterInputs(name, email, password)) {
+                registerUser(name, email, password);
             }
         });
-    }
-
-    private void updateUIMode() {
-        if (isLoginMode) {
-            binding.etName.setVisibility(View.GONE);
-            binding.btnLogin.setText("Log In");
-            binding.tvToggleMode.setText("Don't have an account? Register");
-        } else {
-            binding.etName.setVisibility(View.VISIBLE);
-            binding.btnLogin.setText("Register");
-            binding.tvToggleMode.setText("Already have an account? Log In");
-        }
     }
 
     private boolean validateLoginInputs(String email, String password) {
@@ -155,8 +140,8 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void registerUser(String name, String email, String password) {
-        binding.btnLogin.setEnabled(false);
-        binding.btnLogin.setText("Registering...");
+        binding.btnRegister.setEnabled(false);
+        binding.btnRegister.setText("Registering...");
 
         ApiService.RegisterRequest request = new ApiService.RegisterRequest(name, email, password);
 
@@ -182,16 +167,16 @@ public class AuthActivity extends AppCompatActivity {
                 } else {
                     String errorMsg = response.message().isEmpty() ? "Registration failed" : response.message();
                     Toast.makeText(AuthActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
-                    binding.btnLogin.setEnabled(true);
-                    binding.btnLogin.setText("Register");
+                    binding.btnRegister.setEnabled(true);
+                    binding.btnRegister.setText("Register");
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(AuthActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                binding.btnLogin.setEnabled(true);
-                binding.btnLogin.setText("Register");
+                binding.btnRegister.setEnabled(true);
+                binding.btnRegister.setText("Register");
             }
         });
     }

@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    private static final String BASE_URL = "https://api.example.com/";
+    private static final String BASE_URL = "http://10.0.2.2:8000/";
     private static Retrofit retrofit = null;
 
     // Thread-safe method to get the Retrofit instance

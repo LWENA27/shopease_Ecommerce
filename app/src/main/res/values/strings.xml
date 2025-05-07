@@ -90,5 +90,6 @@
     <string name="proceed_to_checkout" />
     <string name="new_products" />
     <string name="banner_image" />
+    <string name="cart">Cart</string>
 
 </resources>

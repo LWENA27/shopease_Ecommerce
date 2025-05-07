@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/iv_product_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Product Details -->
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Product Name"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/iv_product_image"
+        app:layout_constraintEnd_toStartOf="@id/btn_remove"
+        app:layout_constraintTop_toTopOf="@id/iv_product_image" />
+
+    <TextView
+        android:id="@+id/tv_product_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@id/tv_product_name"
+        app:layout_constraintEnd_toEndOf="@id/tv_product_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_name" />
+
+    <!-- Quantity Controls -->
+    <ImageView
+        android:id="@+id/btn_decrement"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_decrement"
+        app:layout_constraintStart_toStartOf="@id/tv_product_price"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_price"
+        app:layout_constraintBottom_toBottomOf="@id/iv_product_image" />
+
+    <TextView
+        android:id="@+id/tv_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/btn_decrement"
+        app:layout_constraintTop_toTopOf="@id/btn_decrement"
+        app:layout_constraintBottom_toBottomOf="@id/btn_decrement" />
+
+    <ImageView
+        android:id="@+id/btn_increment"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_increment"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/tv_quantity"
+        app:layout_constraintTop_toTopOf="@id/tv_quantity"
+        app:layout_constraintBottom_toBottomOf="@id/tv_quantity" />
+
+    <!-- Remove Button -->
+    <ImageView
+        android:id="@+id/btn_remove"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

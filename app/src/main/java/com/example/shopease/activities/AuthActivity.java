@@ -13,6 +13,7 @@ import com.example.shopease.utils.SharedPrefManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.example.shopease.R;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -30,11 +31,15 @@ public class AuthActivity extends AppCompatActivity {
         apiService = ApiClient.getClient().create(ApiService.class);
         sharedPrefManager = SharedPrefManager.getInstance(this);
 
+        // Set initial UI state (Login mode)
+        updateUIMode(true);
+
         // Back button click listener
         binding.ivBack.setOnClickListener(v -> finish());
 
         // Login button click listener
         binding.btnLogin.setOnClickListener(v -> {
+            updateUIMode(true);
             String email = binding.etEmail.getText().toString().trim();
             String password = binding.etPassword.getText().toString().trim();
 
@@ -45,6 +50,7 @@ public class AuthActivity extends AppCompatActivity {
 
         // Register button click listener
         binding.btnRegister.setOnClickListener(v -> {
+            updateUIMode(false);
             String name = binding.etName.getText().toString().trim();
             String email = binding.etEmail.getText().toString().trim();
             String password = binding.etPassword.getText().toString().trim();
@@ -53,6 +59,20 @@ public class AuthActivity extends AppCompatActivity {
                 registerUser(name, email, password);
             }
         });
+    }
+
+    private void updateUIMode(boolean isLoginMode) {
+        if (isLoginMode) {
+            binding.tvAuthTitle.setText(R.string.login);
+            binding.tilName.setVisibility(View.GONE);
+            binding.btnLogin.setEnabled(true);
+            binding.btnRegister.setEnabled(true);
+        } else {
+            binding.tvAuthTitle.setText(R.string.register);
+            binding.tilName.setVisibility(View.VISIBLE);
+            binding.btnLogin.setEnabled(true);
+            binding.btnRegister.setEnabled(true);
+        }
     }
 
     private boolean validateLoginInputs(String email, String password) {

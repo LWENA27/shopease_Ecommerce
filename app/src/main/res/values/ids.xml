@@ -31,4 +31,45 @@
     <item name="tv_categories" type="id" />
     <item name="tv_featured_products" type="id" />
     <item name="tv_new_products" type="id" />
+    <item name="til_address" type="id" />
+    <item name="til_city" type="id" />
+    <item name="til_zip_code" type="id" />
+    <item name="til_card_number" type="id" />
+    <item name="et_card_number" type="id" />
+    <item name="til_expiry_date" type="id" />
+    <item name="et_expiry_date" type="id" />
+    <item name="til_cvv" type="id" />
+    <item name="et_cvv" type="id" />
+    <item name="btn_submit" type="id" />
+    <item name="iv_back" type="id" />
+    <item name="tv_checkout_title" type="id" />
+    <item name="til_full_name" type="id" />
+    <item name="et_full_name" type="id" />
+    <item name="til_email" type="id" />
+    <item name="et_email" type="id" />
+    <item name="til_phone" type="id" />
+    <item name="et_phone" type="id" />
+    <item name="et_address" type="id" />
+    <item name="et_city" type="id" />
+    <item name="et_zip_code" type="id" />
+    <item name="rg_payment_method" type="id" />
+    <item name="rb_credit_card" type="id" />
+    <item name="rb_paypal" type="id" />
+    <item name="rb_cod" type="id" />
+    <item name="tv_payment_method" type="id" />
+    <item name="tv_order_summary" type="id" />
+    <item name="tv_subtotal_label" type="id" />
+    <item name="tv_subtotal" type="id" />
+    <item name="tv_shipping_label" type="id" />
+    <item name="tv_shipping" type="id" />
+    <item name="tv_total_label" type="id" />
+    <item name="tv_total" type="id" />
+    <item name="btn_place_order" type="id" />
+    <item name="tv_auth_title" type="id" />
+    <item name="til_name" type="id" />
+    <item name="til_password" type="id" />
+    <item name="et_password" type="id" />
+    <item name="button_container" type="id" />
+    <item name="btn_login" type="id" />
+    <item name="btn_register" type="id" />
 </resources>

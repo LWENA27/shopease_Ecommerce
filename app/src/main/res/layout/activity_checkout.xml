@@ -1,303 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:background="@color/background_color">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_back"
+        android:contentDescription="@string/back"
+        android:layout_margin="16dp"
+        app:tint="@color/primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_checkout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkout"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+    <!-- Full Name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_full_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:hint="@string/full_name"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/tv_checkout_title"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Back Button -->
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_back"
-            android:contentDescription="@string/back"
-            app:tint="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Checkout Title -->
-        <TextView
-            android:id="@+id/tv_checkout_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/checkout_title"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_back" />
-
-        <!-- Full Name Label -->
-        <TextView
-            android:id="@+id/tv_full_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/full_name"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_checkout_title" />
-
-        <!-- Full Name Input -->
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_full_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/full_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:inputType="textPersonName"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_full_name_label" />
-
-        <!-- Email Label -->
-        <TextView
-            android:id="@+id/tv_email_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/email"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_full_name" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Email Input -->
-        <EditText
+    <!-- Email -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/til_full_name"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/email"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_email_label" />
-
-        <!-- Phone Label -->
-        <TextView
-            android:id="@+id/tv_phone_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/phone"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_email" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Phone Input -->
-        <EditText
+    <!-- Phone -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phone"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/til_email"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/phone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:inputType="phone"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_phone_label" />
-
-        <!-- Address Label -->
-        <TextView
-            android:id="@+id/tv_address_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/address"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_phone" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Address Input -->
-        <EditText
+    <!-- Address -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/til_phone"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/address"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:inputType="textPostalAddress"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_address_label" />
-
-        <!-- City Label -->
-        <TextView
-            android:id="@+id/tv_city_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/city"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_address" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- City Input -->
-        <EditText
+    <!-- City -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/til_address"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_city"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/city"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:inputType="text"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_city_label" />
-
-        <!-- ZIP Code Label -->
-        <TextView
-            android:id="@+id/tv_zip_code_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zip_code"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_city" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- ZIP Code Input -->
-        <EditText
+    <!-- Zip Code -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_zip_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/zip_code"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/til_city"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_zip_code"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/zip_code"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:inputType="number"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_zip_code_label" />
-
-        <!-- Payment Method Title -->
-        <TextView
-            android:id="@+id/tv_payment_method"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/payment_method"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_zip_code" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Payment Method Radio Group -->
-        <RadioGroup
-            android:id="@+id/rg_payment_method"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_payment_method">
+    <!-- Payment Method -->
+    <TextView
+        android:id="@+id/tv_payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_method"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/til_zip_code"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <RadioButton
-                android:id="@+id/rb_credit_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/credit_card"
-                android:layout_marginTop="8dp" />
+    <RadioGroup
+        android:id="@+id/rg_payment_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment_method"
+        app:layout_constraintStart_toStartOf="parent">
 
-            <RadioButton
-                android:id="@+id/rb_paypal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/paypal"
-                android:layout_marginTop="8dp" />
-
-            <RadioButton
-                android:id="@+id/rb_cod"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/cash_on_delivery"
-                android:layout_marginTop="8dp" />
-        </RadioGroup>
-
-        <!-- Order Summary Title -->
-        <TextView
-            android:id="@+id/tv_order_summary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/order_summary"
+        <RadioButton
+            android:id="@+id/rb_credit_card"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/credit_card"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rg_payment_method" />
+            android:padding="12dp" />
 
-        <!-- Subtotal Label -->
-        <TextView
-            android:id="@+id/tv_subtotal_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/subtotal"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_order_summary" />
+        <RadioButton
+            android:id="@+id/rb_paypal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/paypal"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:padding="12dp" />
 
-        <!-- Subtotal Value -->
-        <TextView
-            android:id="@+id/tv_subtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_order_summary" />
+        <RadioButton
+            android:id="@+id/rb_cod"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/cod"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:padding="12dp" />
+    </RadioGroup>
 
-        <!-- Shipping Label -->
-        <TextView
-            android:id="@+id/tv_shipping_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/shipping"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_subtotal_label" />
+    <!-- Order Summary -->
+    <TextView
+        android:id="@+id/tv_order_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_summary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/rg_payment_method"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Shipping Value -->
-        <TextView
-            android:id="@+id/tv_shipping"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_subtotal" />
+    <TextView
+        android:id="@+id/tv_subtotal_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtotal"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_order_summary"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Total Label -->
-        <TextView
-            android:id="@+id/tv_total_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/total"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_shipping_label" />
+    <TextView
+        android:id="@+id/tv_subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_subtotal_label"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Total Value -->
-        <TextView
-            android:id="@+id/tv_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_shipping" />
+    <TextView
+        android:id="@+id/tv_shipping_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shipping"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtotal_label"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Place Order Button -->
-        <Button
-            android:id="@+id/btn_place_order"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/place_order"
-            android:backgroundTint="@color/colorAccent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_total_label" />
+    <TextView
+        android:id="@+id/tv_shipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_shipping_label"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+    <TextView
+        android:id="@+id/tv_total_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_shipping_label"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_total_label"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Place Order Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_place_order"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/place_order"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
+        app:cornerRadius="8dp"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_label"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

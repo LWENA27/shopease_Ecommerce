@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Original Strings -->
     <string name="app_name">ShopEase</string>
@@ -34,62 +35,59 @@
     <string name="order_history">Order History</string>
     <string name="wishlist">Wishlist</string>
     <string name="profile">Profile</string>
-        <!-- Existing strings -->
+    <string name="cart_empty">Your cart is empty</string>
+    <string name="product_name">Product Name</string>
+    <string name="checkout_title">Checkout</string>
 
-        <string name="cart_empty">Your cart is empty</string>
-        <string name="product_name">Product Name</string>
-        <string name="checkout_title">Checkout</string>
-
-
-        <!-- New strings for CheckoutActivity -->
-        <string name="back">Back</string>
-        <string name="full_name">Full Name</string>
-        <string name="email">Email</string>
-        <string name="phone">Phone</string>
-        <string name="address">Address</string>
-        <string name="city">City</string>
-        <string name="zip_code">ZIP Code</string>
-        <string name="payment_method">Payment Method</string>
-        <string name="credit_card">Credit Card</string>
-        <string name="paypal">PayPal</string>
-        <string name="cash_on_delivery">Cash on Delivery</string>
-        <string name="order_summary">Order Summary</string>
-        <string name="subtotal">Subtotal</string>
-        <string name="shipping">Shipping</string>
-        <string name="total">Total</string>
+    <!-- Strings for CheckoutActivity -->
+    <string name="back">Back</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="zip_code">ZIP Code</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="paypal">PayPal</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="shipping">Shipping</string>
+    <string name="total">Total</string>
     <string name="order_success">Order Placed Successfully!</string>
     <string name="order_id_placeholder">Order ID: N/A</string>
-        <!-- Existing strings -->
 
+    <!-- Strings for CartActivity -->
+    <string name="cart_title">Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="shop_now">Shop Now</string>
 
-
-        <!-- New strings for CartActivity -->
-        <string name="cart_title">Cart</string>
-        <string name="checkout">Checkout</string>
-        <string name="shop_now">Shop Now</string>
-
-
-    <!-- New strings for item_cart.xml -->
+    <!-- Strings for item_cart.xml -->
     <string name="product_image">Product Image</string>
     <string name="decrement">Decrement Quantity</string>
     <string name="increment">Increment Quantity</string>
-    <string name="remove" />
+    <string name="remove">Remove</string>
     <string name="continue_shopping">Continue Shopping</string>
     <string name="cart_items">Cart Items</string>
     <string name="password">Password</string>
-    <string name="logout" />
-    <string name="view_cart" />
-    <string name="register_prompt" />
-    <string name="add_to_wishlist" />
-    <string name="view_wishlist" />
-    <string name="empty_wishlist" />
-    <string name="wishlist_title" />
-    <string name="remove_item" />
-    <string name="increment_quantity" />
-    <string name="decrement_quantity" />
-    <string name="proceed_to_checkout" />
-    <string name="new_products" />
-    <string name="banner_image" />
+    <string name="logout">Logout</string>
+    <string name="view_cart">View Cart</string>
+    <string name="register_prompt">Don\'t have an account? Sign Up</string>
+    <string name="add_to_wishlist">Add to Wishlist</string>
+    <string name="view_wishlist">View Wishlist</string>
+    <string name="empty_wishlist">Your wishlist is empty</string>
+    <string name="wishlist_title">Wishlist</string>
+    <string name="remove_item">Remove Item</string>
+    <string name="increment_quantity">Increment Quantity</string>
+    <string name="decrement_quantity">Decrement Quantity</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
+    <string name="new_products">New Products</string>
+    <string name="banner_image">Banner Image</string>
     <string name="cart">Cart</string>
-
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="submit">Submit</string>
+    <string name="cod" />
 </resources>
